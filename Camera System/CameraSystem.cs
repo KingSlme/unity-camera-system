@@ -12,7 +12,7 @@ public class CameraSystem : MonoBehaviour
 
     [SerializeField] private CinemachineVirtualCamera _cinemachineVirtualCamera;
     private CinemachineTransposer _cinemachineTransposer;
-    private const float _epsilon = 0.01f;
+    private const float EPSILON = 0.01f;
 
     [Header("Movement")]
     [SerializeField] [Range(10.0f, 100.0f)] private float _movementSpeed = 50.0f;
@@ -221,17 +221,17 @@ public class CameraSystem : MonoBehaviour
 
     private void CheckWarnings()
     {
-        if (_fovMin - _epsilon > _cinemachineVirtualCamera.m_Lens.FieldOfView)
+        if (_fovMin - EPSILON > _cinemachineVirtualCamera.m_Lens.FieldOfView)
             Debug.LogWarning($"_fovMin: {_fovMin} is greater than Cinemachine's Vertical FOV: {_cinemachineVirtualCamera.m_Lens.FieldOfView}");
-        if (_fovMax + _epsilon < _cinemachineVirtualCamera.m_Lens.FieldOfView)
+        if (_fovMax + EPSILON < _cinemachineVirtualCamera.m_Lens.FieldOfView)
             Debug.LogWarning($"_fovMax: {_fovMax} is less than Cinemachine's Vertical FOV: {_cinemachineVirtualCamera.m_Lens.FieldOfView}");
-        if (_followOffsetMin - _epsilon > _followOffset.magnitude)
+        if (_followOffsetMin - EPSILON > _followOffset.magnitude)
             Debug.LogWarning($"_followOffsetMin: {_followOffsetMax} is greater than the magnitude of Cinemachine's Follow Offset: {_followOffset.magnitude}");
-        if (_followOffsetMax + _epsilon < _followOffset.magnitude)
+        if (_followOffsetMax + EPSILON < _followOffset.magnitude)
             Debug.LogWarning($"_followOffsetMaxt: {_followOffsetMax} is less than the magnitude of Cinemachine's Follow Offset: {_followOffset.magnitude}");
-        if (_followOffsetMinY - _epsilon > _followOffset.y)
+        if (_followOffsetMinY - EPSILON > _followOffset.y)
             Debug.LogWarning($"_followOffsetMinY: {_followOffsetMax} is greater than the magnitude of Cinemachine's Follow Offset Y: {_followOffset.y}");
-        if (_followOffsetMaxY + _epsilon < _followOffset.y)
+        if (_followOffsetMaxY + EPSILON < _followOffset.y)
             Debug.LogWarning($"_followOffsetMaxY: {_followOffsetMax} is lessthan the magnitude of Cinemachine's Follow Offset Y: {_followOffset.y}");
     }
 }
