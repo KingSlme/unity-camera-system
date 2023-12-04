@@ -230,8 +230,8 @@ public class CameraSystem : MonoBehaviour
         if (_followOffsetMax + EPSILON < _followOffset.magnitude)
             Debug.LogWarning($"_followOffsetMaxt: {_followOffsetMax} is less than the magnitude of Cinemachine's Follow Offset: {_followOffset.magnitude}");
         if (_followOffsetMinY - EPSILON > _followOffset.y)
-            Debug.LogWarning($"_followOffsetMinY: {_followOffsetMax} is greater than the magnitude of Cinemachine's Follow Offset Y: {_followOffset.y}");
+            Debug.LogWarning($"_followOffsetMinY: {_followOffsetMax} is greater than Cinemachine's Follow Offset Y: {_followOffset.y}");
         if (_followOffsetMaxY + EPSILON < _followOffset.y)
-            Debug.LogWarning($"_followOffsetMaxY: {_followOffsetMax} is lessthan the magnitude of Cinemachine's Follow Offset Y: {_followOffset.y}");
+            Debug.LogWarning($"_followOffsetMaxY: {_followOffsetMax} is less than Cinemachine's Follow Offset Y: {_followOffset.y}");
     }
 }
