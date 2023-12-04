@@ -16,7 +16,7 @@ public class CameraSystem : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] [Range(10.0f, 100.0f)] private float _movementSpeed = 50.0f;
-    [SerializeField] private float dragPanSpeed = 1.0f;
+    [SerializeField] private float _dragPanSpeed = 1.0f;
     [SerializeField] private bool _enableKeyboardMovement = true;
     [SerializeField] private bool _enableEdgeScrolling = false;
     [SerializeField] private bool _enableDragPanning = false;
@@ -125,8 +125,8 @@ public class CameraSystem : MonoBehaviour
         {
             Vector2 mouseMovementDelta = (Vector2)Input.mousePosition - _lastMousePosition;
             // Serialize
-            moveDirection.x = mouseMovementDelta.x * -dragPanSpeed;
-            moveDirection.z = mouseMovementDelta.y * -dragPanSpeed;
+            moveDirection.x = mouseMovementDelta.x * -_dragPanSpeed;
+            moveDirection.z = mouseMovementDelta.y * -_dragPanSpeed;
             _lastMousePosition = Input.mousePosition;
         }
         transform.Translate(moveDirection * _movementSpeed * Time.deltaTime);
