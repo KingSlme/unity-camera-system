@@ -1,7 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 
-public class CameraSystem : MonoBehaviour
+public class CameraSystemTopDown : MonoBehaviour
 {   
     private enum ZoomType
     {
@@ -117,7 +117,7 @@ public class CameraSystem : MonoBehaviour
     {
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputZ = Input.GetAxisRaw("Vertical");
-        Vector3 moveDirection = (inputX * _cinemachineVirtualCamera.transform.right + inputZ * _cinemachineVirtualCamera.transform.forward).normalized;
+        Vector3 moveDirection = (inputX * _cinemachineVirtualCamera.transform.right + inputZ * _cinemachineVirtualCamera.transform.up).normalized;
         moveDirection.y = 0.0f;
         transform.Translate(moveDirection * _movementSpeed * Time.deltaTime, Space.World);
     }
@@ -128,9 +128,9 @@ public class CameraSystem : MonoBehaviour
         if (_enableEdgeScrolling)
         {
             if (Input.mousePosition.x < _edgeScrollBuffer) moveDirection += -1.0f * _cinemachineVirtualCamera.transform.right; 
-            if (Input.mousePosition.y < _edgeScrollBuffer) moveDirection += -1.0f * _cinemachineVirtualCamera.transform.forward;
+            if (Input.mousePosition.y < _edgeScrollBuffer) moveDirection += -1.0f * _cinemachineVirtualCamera.transform.up;
             if (Input.mousePosition.x > Screen.width - _edgeScrollBuffer) moveDirection += 1.0f * _cinemachineVirtualCamera.transform.right;
-            if (Input.mousePosition.y > Screen.height - _edgeScrollBuffer) moveDirection += 1.0f * _cinemachineVirtualCamera.transform.forward;
+            if (Input.mousePosition.y > Screen.height - _edgeScrollBuffer) moveDirection += 1.0f * _cinemachineVirtualCamera.transform.up;
         }
         moveDirection.y = 0.0f;
         moveDirection = moveDirection.normalized;
@@ -152,7 +152,7 @@ public class CameraSystem : MonoBehaviour
         if (_isDragging)
         {
             Vector2 mouseMovementDelta = (Vector2)Input.mousePosition - _lastMousePosition;
-            moveDirection = mouseMovementDelta.x * -_dragPanSpeed * _cinemachineVirtualCamera.transform.right + mouseMovementDelta.y * -_dragPanSpeed * _cinemachineVirtualCamera.transform.forward;
+            moveDirection = mouseMovementDelta.x * -_dragPanSpeed * _cinemachineVirtualCamera.transform.right + mouseMovementDelta.y * -_dragPanSpeed * _cinemachineVirtualCamera.transform.up;
             _lastMousePosition = Input.mousePosition;
         }
         moveDirection.y = 0.0f;
