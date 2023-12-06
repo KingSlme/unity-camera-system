@@ -1,23 +1,29 @@
 # unity-camera-system
-A dynamic camera system using Unity's Cinemachine.
+A dynamic freeform camera system using Unity's Cinemachine.
 
 ## Key Features
-*Movement Options:*
+*Movement:*
 - Keyboard
 - Drag Panning
 - Edge Scrolling
+- Camera Bounds
 
-*Rotation Options:*
+*Rotation:*
 - Normal
 - Snapping
 
-*Zoom Options:*
+*Zoom:*
 - FOV
 - Forward
 - Y
 
+*Examples:*
+- Topdown
+- Isometric
+
 ## Setup
-1. Add Camera System script to an empty GameObject
+1. Add the desired script to an empty GameObject or use one of the example prefabs
+2. Ensure the Main Camera has a CinemachineBrain component
 
 ## Dependencies
 * Cinemachine
