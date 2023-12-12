@@ -1,5 +1,5 @@
 # unity-camera-system
-A dynamic freeform camera system using Unity's Cinemachine.
+A dynamic freeform camera system for Unity using Cinemachine.
 
 ## Key Features
 *Movement:*
